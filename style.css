@@ -1,1 +1,133 @@
+
+
+/* استيراد خط عربي جميل */
+@import u rl('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+body {
+    'Tajawal', sans-serif;
+    0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+/* هيدر الموقع */
+header {
+    background-color: #004F54;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    0;
+    font-size: 28px;
+}
+
+header p {
+    font-size: 16px;
+    5px;
+}
+
+/* شريط التنقل */
+nav {
+    background-color: #00736a;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+
+nav ul li a:hover, .active {
+    background-color: #005a56;
+}
+
+/* القسم التعريفي */
+.intro {
+    30px auto;
+    max-width: 600px;
+    font-size: 18px;
+}
+
+/* صندوق السؤال */
+.question-box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    20px auto;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #00736a;
+    box-shadow: 0 0 8px rgba(0, 115, 106, 0.5);
+}
+
+/* زر الإرسال */
+button {
+    background-color: #004F54;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00736a;
+}
+
+/* صندوق الإجابة */
+.response-box {
+    20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* الفوتر */
+footer {
+    background-color: #004F54;
+    color: white;
+    padding: 15px;
+    30px;
+    font-size: 14px;
+}
  

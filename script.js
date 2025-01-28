@@ -21,7 +21,7 @@ document.getElementById("send").addEventListener("click", async function() {
 
     try {
         // إرسال السؤال إلى الخادم الخارجي
-        const response = await fetch("https://your-server-url.com/ask", { // استبدل your-server-url.com برابط خادمك لاحقًا
+        const response = await fetch("https://server-sa-ai.onrender.com/", { // استبدل your-server-url.com برابط خادمك لاحقًا
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

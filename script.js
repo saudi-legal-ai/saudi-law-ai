@@ -15,11 +15,14 @@ document.getElementById("send").addEventListener("click", async function() {
     responseBox.style.display = "block";
 
     try {
+        // جلب API Key من GitHub Secrets
+        const API_KEY = process.env.HUGGINGFACE_API_KEY;
+
         const response = await fetch("https://api-inference.huggingface.co/models/deepset/roberta-base-squad2", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer ${API_KEY}" // ضع API Key هنا
+                "Authorization": `Bearer ${API_KEY}`
             },
             body: JSON.stringify({
                 inputs: {
@@ -39,4 +42,3 @@ document.getElementById("send").addEventListener("click", async function() {
         responseText.textContent = "حدث خطأ أثناء الاتصال بالخادم.";
     }
 });
- 

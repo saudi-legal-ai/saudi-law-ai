@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -51,7 +49,6 @@
             flex-direction: column;
             gap: 15px;
             20px;
-            position: relative;
         }
         textarea {
             width: 100%;
@@ -61,31 +58,6 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             resize: none;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-        textarea:focus {
-            border-color: #00736a;
-            box-shadow: 0 0 8px rgba(0, 115, 106, 0.5);
-        }
-        .suggestions {
-            display: none;
-            position: absolute;
-            top: 130px;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-        .suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .suggestions div:hover {
-            background-color: #f4f4f9;
         }
         button {
             background-color: #004F54;
@@ -100,6 +72,14 @@
         button:hover {
             background-color: #00736a;
         }
+        .response-box {
+            display: none;
+            background-color: #e8f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            20px;
+            font-size: 16px;
+        }
         footer {
             background-color: #004F54;
             color: white;
@@ -109,6 +89,17 @@
             bottom: 0;
             width: 100%;
             font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 22px;
+            }
+            header p {
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -122,8 +113,11 @@
             <h2>اسأل سؤالك القانوني</h2>
             <div class="input-box">
                 <textarea id="question" placeholder="اكتب سؤالك هنا..."></textarea>
-                <div class="suggestions" id="suggestions"></div>
                 <button id="send">إرسال</button>
+            </div>
+            <div class="response-box" id="response">
+                <strong>الإجابة:</strong>
+                <p id="responseText">هنا سيتم عرض الإجابة على سؤالك.</p>
             </div>
         </div>
     </main>
@@ -131,34 +125,10 @@
         © 2025 مستشارك القانوني الذكي - جميع الحقوق محفوظة
     </footer>
     <script>
-        const textarea = document.getElementById('question');
-        const suggestionsBox = document.getElementById('suggestions');
-        const suggestions = ["ما هي شروط العقد؟", "كيف أرفع دعوى قضائية؟", "ما هي الحقوق في العمل؟"];
-
-        textarea.addEventListener('input', () => {
-            const query = textarea.value.toLowerCase();
-            if (query.length > 1) {
-                suggestionsBox.innerHTML = suggestions
-                    .filter(s => s.toLowerCase().includes(query))
-                    .map(s => `<div>${s}</div>`)
-                    .join('');
-                suggestionsBox.style.display = 'block';
-            } else {
-                suggestionsBox.style.display = 'none';
-            }
-        });
-
-        suggestionsBox.addEventListener('click', (e) => {
-            if (e.target.tagName === 'DIV') {
-                textarea.value = e.target.textContent;
-                suggestionsBox.style.display = 'none';
-            }
-        });
-
-        document.getElementById('send').addEventListener('click', function() {
+        document.getElementById("send").addEventListener("click", function() {
             const responseBox = document.getElementById("response");
             const responseText = document.getElementById("responseText");
-            responseText.textContent = "جاري معالجة سؤالك...";
+            responseText.textContent = "شكراً لسؤالك، سيتم معالجة استفسارك قريباً!";
             responseBox.style.display = "block";
         });
     </script>

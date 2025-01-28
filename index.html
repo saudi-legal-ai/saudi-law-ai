@@ -1,136 +1,50 @@
+
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مستشارك القانوني الذكي</title>
-    <style>
-        body {
-            'Tajawal', sans-serif;
-            0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #004F54;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            0;
-            font-size: 28px;
-        }
-        header p {
-            5px 0 0;
-            font-size: 16px;
-            color: #cce7e8;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 10px;
-        }
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            20px 0;
-        }
-        .input-box {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            20px;
-        }
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            resize: none;
-        }
-        button {
-            background-color: #004F54;
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #00736a;
-        }
-        .response-box {
-            display: none;
-            background-color: #e8f5f5;
-            padding: 15px;
-            border-radius: 8px;
-            20px;
-            font-size: 16px;
-        }
-        footer {
-            background-color: #004F54;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            font-size: 14px;
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 22px;
-            }
-            header p {
-                font-size: 14px;
-            }
-            button {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <link rel="nofollow" href=''>
 </head>
 <body>
+
     <header>
         <h1>مستشارك القانوني الذكي</h1>
-        <p>أول منصة سعودية للاستشارات القانونية الذكية</p>
+        <p>احصل على استشارات قانونية دقيقة باستخدام الذكاء الاصطناعي</p>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href='' class="active">الرئيسية</a></li>
+            <li><a href=''>الأسئلة الشائعة</a></li>
+            <li><a href=''>عن الموقع</a></li>
+            <li><a href=''>تواصل معنا</a></li>
+        </ul>
+    </nav>
+
     <main>
-        <div class="card">
-            <h2>اسأل سؤالك القانوني</h2>
-            <div class="input-box">
-                <textarea id="question" placeholder="اكتب سؤالك هنا..."></textarea>
-                <button id="send">إرسال</button>
-            </div>
-            <div class="response-box" id="response">
+        <section class="intro">
+            <h2>كيف يمكننا مساعدتك؟</h2>
+            <p>اكتب سؤالك القانوني، وسنحاول توفير إجابة دقيقة بناءً على الأنظمة السعودية.</p>
+        </section>
+
+        <section class="question-box">
+            <textarea id="question" placeholder="اكتب سؤالك القانوني هنا..."></textarea>
+            <button id="send">إرسال</button>
+            <div id="response" class="response-box">
                 <strong>الإجابة:</strong>
                 <p id="responseText">هنا سيتم عرض الإجابة على سؤالك.</p>
             </div>
-        </div>
+        </section>
     </main>
+
     <footer>
-        © 2025 مستشارك القانوني الذكي - جميع الحقوق محفوظة
+        <p>© 2025 مستشارك القانوني الذكي - جميع الحقوق محفوظة</p>
     </footer>
-    <script>
-        document.getElementById("send").addEventListener("click", function() {
-            const responseBox = document.getElementById("response");
-            const responseText = document.getElementById("responseText");
-            responseText.textContent = "شكراً لسؤالك، سيتم معالجة استفسارك قريباً!";
-            responseBox.style.display = "block";
-        });
-    </script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>

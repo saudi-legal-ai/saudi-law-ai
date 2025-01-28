@@ -5,6 +5,11 @@ document.getElementById("send").addEventListener("click", async function() {
     const responseBox = document.getElementById("response");
     const responseText = document.getElementById("responseText");
 
+    if (!responseText) {
+        console.error("العنصر responseText غير موجود في الصفحة!");
+        return;
+    }
+
     if (question.trim() === "") {
         responseText.textContent = "الرجاء إدخال سؤال قانوني.";
         responseBox.style.display = "block";
@@ -15,26 +20,18 @@ document.getElementById("send").addEventListener("click", async function() {
     responseBox.style.display = "block";
 
     try {
-        // جلب API Key من GitHub Secrets
-        const API_KEY = process.env.HUGGINGFACE_API_KEY;
-
-        const response = await fetch("https://api-inference.huggingface.co/models/deepset/roberta-base-squad2", {
+        // إرسال السؤال إلى الخادم الخارجي
+        const response = await fetch("https://your-server-url.com/ask", { // استبدل your-server-url.com برابط خادمك لاحقًا
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                inputs: {
-                    question: question,
-                    context: "هذا نموذج ذكاء اصطناعي للإجابة على الأسئلة القانونية."
-                }
-            })
+            body: JSON.stringify({ question: question })
         });
 
         const data = await response.json();
-        if (data && data.length > 0) {
-            responseText.textContent = data[0].answer;
+        if (data && data.answer) {
+            responseText.textContent = data.answer;
         } else {
             responseText.textContent = "لم أتمكن من العثور على إجابة. حاول مرة أخرى.";
         }

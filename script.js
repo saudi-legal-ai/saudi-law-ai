@@ -1,41 +1,36 @@
 
 
-document.getElementById("send").addEventListener("click", async function() {
+document.getElementById("send").addEventListener("click", async function () {
     const question = document.getElementById("question").value;
-    const responseBox = document.getElementById("response");
+    const responseBox = document.getElementById("responseBox");
     const responseText = document.getElementById("responseText");
 
-    if (!responseText) {
-        console.error("العنصر responseText غير موجود في الصفحة!");
-        return;
-    }
-
     if (question.trim() === "") {
-        responseText.textContent = "الرجاء إدخال سؤال قانوني.";
+        responseText.textContent = "يرجى إدخال سؤالك القانوني.";
         responseBox.style.display = "block";
         return;
     }
 
-    responseText.textContent = "جارٍ معالجة سؤالك...";
+    responseText.textContent = "جارٍ معالجة استفسارك...";
     responseBox.style.display = "block";
 
     try {
-        // إرسال السؤال إلى الخادم الخارجي
-        const response = await fetch("https://server-sa-ai.onrender.com/", { // استبدل your-server-url.com برابط خادمك لاحقًا
+        const response = await fetch("https://YOUR_RENDER_URL/ask", { // استبدل هذا بالرابط الفعلي
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ question: question })
+            body: JSON.stringify({ question })
         });
 
         const data = await response.json();
+
         if (data && data.answer) {
             responseText.textContent = data.answer;
         } else {
-            responseText.textContent = "لم أتمكن من العثور على إجابة. حاول مرة أخرى.";
+            responseText.textContent = "حدث خطأ أثناء معالجة استفسارك.";
         }
     } catch (error) {
-        responseText.textContent = "حدث خطأ أثناء الاتصال بالخادم.";
+        responseText.textContent = "تعذر الاتصال بالسيرفر، حاول مرة أخرى لاحقًا.";
     }
 });

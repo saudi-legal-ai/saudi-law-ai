@@ -15,7 +15,7 @@ document.getElementById("send").addEventListener("click", async function () {
     responseBox.style.display = "block";
 
     try {
-        const response = await fetch("https://YOUR_RENDER_URL/ask", { // استبدل هذا بالرابط الفعلي
+        const response = await fetch("https://server-sa-ai.onrender.com/", { // استبدل هذا بالرابط الفعلي
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
